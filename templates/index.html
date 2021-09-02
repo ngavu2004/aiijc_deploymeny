@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>AIIJC</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,
+  h1 {
+    font-family: "Raleway", sans-serif
+  }
+
+  body,
+  html {
+    height: 100%;
+    background-color: #b77a37;
+  }
+
+  /* .bgimg {
+  background-image: url('forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+} */
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .main-field {
+    width: 50vw;
+    height: 60vh;
+    margin: auto;
+    padding: 0;
+    background-color: black;
+  }
+
+  .form {
+    background-color: white;
+    width: 60%;
+    float: left;
+    height: 100%;
+  }
+  .result {
+    width: 40%;
+    float: right;
+    height: 40%;
+    margin: auto;
+  }
+</style>
+
+<body>
+
+  <div class="w3-animate-opacity w3-text-black">
+    <div class="w3-padding-large w3-xlarge">
+      AIIJC Classify sign images - Babyshark Team
+    </div>
+
+    <div class="main-field w3-container w3-xlarge  w3-hover-shadow">
+      <form method="post" action="/" enctype="multipart/form-data" class="form w3-container">
+        <h2 class="w3-center">Choose your image</h2>
+        <dl>
+          <p style="width: 50%;">
+            <input type="file" name="file" class="w3-button w3-rounder" autocomplete="off" required>
+          </p>
+        </dl>
+        <p class="w3-center">
+          <input type="submit" value="Submit" class="w3-hover-shadow w3-rounder w3-black">
+        </p>
+      </form>
+      {% if filename %}
+      <div class="result w3-container">
+        <img src="{{ url_for('display_image', filename=filename) }}">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+
+</html>
